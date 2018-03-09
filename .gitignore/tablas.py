@@ -16,7 +16,7 @@ CREATE TABLE empleados (
     tipo_empleado VARCHAR(50),
     salario FLOAT(50),
     PRIMARY KEY (empleadoID)
-);
+)
 
 
 CREATE TABLE vehiculos (
@@ -27,7 +27,7 @@ CREATE TABLE vehiculos (
     año VARCHAR(50),
     color VARCHAR(50),
     PRIMARY KEY (vehiculoID)
-);
+)
 
 
 CREATE TABLE vehiculos_asignados (
@@ -36,7 +36,7 @@ CREATE TABLE vehiculos_asignados (
     dia_semana VARCHAR(50),
     FOREIGN KEY (empleadoID) REFERENCES epleados(empleadoID),
     FOREIGN KEY (vehiculoID) REFERENCES vehiculos(vehiculoID)
-);
+)
 
 
 CREATE TABLE historial (
@@ -46,7 +46,7 @@ CREATE TABLE historial (
     salario FLOAT(50),
     PRIMARY KEY (puestoID),
     FOREIGN KEY (empleadoID) REFERENCES epleados(empleadoID)
-);
+)
 
 
 CREATE TABLE capacitaciones (
@@ -55,7 +55,7 @@ CREATE TABLE capacitaciones (
     capacitacion VARCHAR(50),
     calificacion FLOAT(50),
     FOREIGN KEY (empleadoID) REFERENCES epleados(empleadoID)
-);
+)
 
 
 CREATE TABLE acciones (
@@ -64,7 +64,7 @@ CREATE TABLE acciones (
     accion_otorgada VARCHAR(50),
     explicacion VARCHAR(100),
     FOREIGN KEY (empleadoID) REFERENCES epleados(empleadoID)
-);
+)
 
 
 CREATE TABLE administrativos (
@@ -72,7 +72,7 @@ CREATE TABLE administrativos (
     oficina VARCHAR(50),
     tel_oficina VARCHAR(50),
     FOREIGN KEY (empleadoID) REFERENCES epleados(empleadoID)
-);
+)
 
 
 CREATE TABLE operativos (
@@ -80,4 +80,4 @@ CREATE TABLE operativos (
     tipo_licencia VARCHAR(10),
     uso_lentes VARCHAR(50),
     FOREIGN KEY (empleadoID) REFERENCES epleados(empleadoID)
-);
+)
