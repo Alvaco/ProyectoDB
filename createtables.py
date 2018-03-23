@@ -2,14 +2,15 @@ import psycopg2
 import config
 import sys
 
-con = None
 
+##CONEXION
+con = None
 conn = psycopg2.connect(database="postgres", user="postgres", password="1234", host="127.0.0.1", port="5432")
+c = conn.cursor()
 print ("CONEXION EXITOSA")
 
 
-c = conn.cursor()
-
+##CREACION TABLAS
 c.execute('''
 
     CREATE TABLE IF NOT EXISTS empleados (
@@ -115,3 +116,27 @@ c.execute('''
     );
     ''')
 print ("TABLA operativos CREADA")
+
+
+##CREACION TUPLAS
+
+emp=[]
+emp.append(input("INGRESE EMPLEADO ID "))
+emp.append(input("INGRESE NOMBRE "))
+emp.append(input("INGRESE APELLIDO "))
+emp.append(input("INGRESE DIRECCION "))
+emp.append(input("INGRESE TELEFONO "))
+emp.append(input("INGRESE CORREO "))
+emp.append(input("INGRESE FECHA DE CONTRATACION "))
+emp.append(input("INGRESE EDAD "))
+emp.append(input("INGRESE DPI "))
+emp.append(input("INGRESE SEXO "))
+emp.append(input("INGRESE PUESTO "))
+emp.append(input("INGRESE TIPO DE EMPLEADO "))
+emp.append(input("INGRESE SALARIO "))
+
+
+query =  "INSERT INTO empleados (empleadoID, nombre, apellido, direccion, telefono, correo, fecha_contratacion, edad, dpi, sexo, puesto, tipo_empleado, salario) \
+      VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s)"
+data = (emp[0], emp[1], emp[2], emp[3], emp[4], emp[5], emp[6], emp[7], emp[8], emp[9], emp[10], emp[11], emp[12])
+c.execute(query, data)
