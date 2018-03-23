@@ -115,5 +115,3 @@ c.execute('''
     );
     ''')
 print ("TABLA operativos CREADA")
-
-c.execute('SELECT * FROM empleados')
