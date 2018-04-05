@@ -1,5 +1,4 @@
 import psycopg2
-import config
 from terminaltables import AsciiTable
 
 ##CONEXION
@@ -176,7 +175,18 @@ def mostrarTabla():\
     table = AsciiTable(table_data)
     print (table.table)
 
+def infGen():
+    cur.execute("SELECT column_name \
+                FROM   information_schema.columns \
+                WHERE  table_name = 'empleados'")
 
+    cur.execute("SELECT * FROM empleados") 
+    row = cur.fetchall()
+    informacionGeneral={}
+    r=row[0]
+    nom=['ID', 'Nombre', 'Apellido', 'Dirreccion', 'Telefono', 'Correro', 'Fecha Contratacion', 'Edad', 'DPI', 'Sexo', 'Puesto', 'Tipo Empleado', 'Salario', 'Twitter']
+    for i in range(0, len(nom)):
+        informacionGeneral.update({nom[i]:r[i]})
 
 ##ACTUALIZAR DATOS
 
