@@ -184,10 +184,79 @@ def infGen():
     row = cur.fetchall()
     informacionGeneral={}
     r=row[0]
-    nom=['ID', 'Nombre', 'Apellido', 'Dirreccion', 'Telefono', 'Correro', 'Fecha Contratacion', 'Edad', 'DPI', 'Sexo', 'Puesto', 'Tipo Empleado', 'Salario', 'Twitter']
+    nom=['empleadoID', 'Nombre', 'Apellido', 'Dirreccion', 'Telefono', 'Correro', 'Fecha Contratacion', 'Edad', 'DPI', 'Sexo', 'Puesto', 'Tipo Empleado', 'Salario', 'Twitter']
     for i in range(0, len(nom)):
         informacionGeneral.update({nom[i]:r[i]})
 
+
+def vehiculos():
+    cur.execute("SELECT column_name \
+                FROM   information_schema.columns \
+                WHERE  table_name = 'vehiculos'")
+
+    cur.execute("SELECT * FROM vehiculos") 
+    row = cur.fetchall()
+    nom=['vehiculoID', 'Placas', 'Modelo', 'Anio', 'Marca', 'Color']
+    vehiculos=[]
+    for j in range(0, len(row)):
+        vehiculo={}
+        r=row[j]
+        for i in range(0, len(nom)):
+            vehiculo.update({nom[i]:r[i]})
+        vehiculos.append(vehiculo)
+
+
+def capacitaciones():
+    cur.execute("SELECT column_name \
+                FROM   information_schema.columns \
+                WHERE  table_name = 'capacitaciones'")
+
+    cur.execute("SELECT * FROM capacitaciones") 
+    row = cur.fetchall()
+    nom=['empleadoID', 'Capacitacion', 'Fecha Capacitacion', 'Calificacion']
+    capacitaciones=[]
+    for j in range(0, len(row)):
+        capacitacion={}
+        r=row[j]
+        for i in range(0, len(nom)):
+            capacitacion.update({nom[i]:r[i]})
+        capacitaciones.append(capacitacion)
+
+
+def histSal():
+    cur.execute("SELECT column_name \
+                FROM   information_schema.columns \
+                WHERE  table_name = 'historial'")
+
+    cur.execute("SELECT * FROM historial") 
+    row = cur.fetchall()
+    nom=['empleadoID', 'Fecha Asignacion', 'Puesto', 'Salario']
+    historial_salarios_puesto=[]
+    for j in range(0, len(row)):
+        hist={}
+        r=row[j]
+        for i in range(0, len(nom)):
+            hist.update({nom[i]:r[i]})
+        historial_salarios_puesto.append(hist)
+
+
+def accD():
+    cur.execute("SELECT column_name \
+                FROM   information_schema.columns \
+                WHERE  table_name = 'acciones'")
+
+    cur.execute("SELECT * FROM acciones") 
+    row = cur.fetchall()
+    nom=['empleadoID', 'Fecha', 'Accion Otorgada', 'Observaciones']
+    acciones_disciplinarias=[]
+    for j in range(0, len(row)):
+        accion={}
+        r=row[j]
+        for i in range(0, len(nom)):
+            accion.update({nom[i]:r[i]})
+        acciones_disciplinarias.append(accion)
+
+        
 ##ACTUALIZAR DATOS
 
 def actualizarEmpleado():
