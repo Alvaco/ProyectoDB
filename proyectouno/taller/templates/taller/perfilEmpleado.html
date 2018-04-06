@@ -1,0 +1,211 @@
+<head>
+	<style>
+		.column {
+	    float: left;
+	    width: 50%;
+
+	}
+
+	/* Clear floats after the columns */
+	.row:after {
+	    content: "";
+	    display: table;
+	    
+	    clear: both;
+	}
+	.agregarInput {
+		margin-right: 8px
+		clear: both;
+	}
+
+	.inputIzquierda {
+		float: right;
+		clear: both;
+	}
+	</style>
+</head>
+
+<body>
+	<h1> Informacion de Empleado </h1>
+	
+	<form action="{% url 'eliminarEmpleado' id_empleado %}" method="get" class="inputIzquierda">
+		<input type="submit" value="Eliminar Empleado">
+	</form>
+
+
+	<div class="row">
+		<div class="column">
+			<h3>Informacion General</h3>
+			<form action="{% url 'actualizarEmpleadoDatosGenerales' id_empleado %}" method="get">
+				<input type="submit" value="Cambiar Datos" class="agregarInput">
+			</form>
+			<script type="text/javascript">
+				var informacionGeneral = {{informacionGeneral|safe}};
+				var llaves = Object.keys(informacionGeneral);
+
+				var str1 = "<li><a>";
+				var str2 = ": "
+				var str3 = "</a></li>";
+
+				for (var i = 0; i < llaves.length; i++) {
+					var llave = llaves[i];
+					var valor = informacionGeneral[llave];
+
+					document.write(str1.concat(llave,str2,valor,str3));
+				}
+			</script>
+		</div>
+
+		<div class="column">
+			<h3>Tweets Recientes</h3>
+			<script type="text/javascript">
+				var tweets = {{tweets|safe}}
+
+				var str1 = "<li><a>";
+				var str2 = "</a></li>";
+
+				for (var i = 0; i < tweets.length; i++) {
+					var tweet = tweets[i];
+
+					document.write(str1.concat(tweet,str3));
+				}
+			</script>
+		</div>
+	</div>
+
+	<div class="row">
+		<div class="column">
+			<br>
+			<h2>Vehiculos</h2>
+			<form action="{% url 'agregarVehiculo' id_empleado %}" method="get">
+				<input type="submit" value="Agregar Vehiculo" class="agregarInput">
+			</form>
+			<script type="text/javascript">
+				var vehiculos = {{vehiculos|safe}};
+
+				var strh1 = "<h4> Vehiculo ";
+				var strh2 = "</h4>"
+
+				var str1 = "<li><a>";
+				var str2 = ": "
+				var str3 = "</a></li>";
+
+				for (var i = 0; i < vehiculos.length; i++) {
+					document.write(strh1.concat((i+1).toString(), strh2));
+
+					var vehiculo = vehiculos[i];
+					var llaves = Object.keys(vehiculo);
+
+					for (var j = 0; j < llaves.length; j++) {
+						var llave = llaves[j];
+						var valor = vehiculo[llave];
+
+						document.write(str1.concat(llave,str2,valor,str3));
+					}
+				}
+			</script>
+		</div>
+
+		<div class="column">
+			<br>
+			<h2>Capacitaciones</h2>
+			<form action="{% url 'agregarCapacitacion' id_empleado %}" method="get">
+				<input type="submit" value="Agregar Capacitacion">
+			</form>
+			<script type="text/javascript">
+				var capacitaciones = {{capacitaciones|safe}};
+
+				var strh1 = "<h4> Capacitacion ";
+				var strh2 = "</h4>"
+
+				var str1 = "<li><a>";
+				var str2 = ": "
+				var str3 = "</a></li>";
+
+				for (var i = 0; i < capacitaciones.length; i++) {
+					document.write(strh1.concat((i+1).toString(), strh2));
+
+					var capacitacion = capacitaciones[i];
+					var llaves = Object.keys(capacitacion);
+
+					for (var j = 0; j < llaves.length; j++) {
+						var llave = llaves[j];
+						var valor = capacitacion[llave];
+
+						document.write(str1.concat(llave,str2,valor,str3));
+					}
+				}
+			</script>
+		</div>
+	</div>
+
+	<div class="row">
+		<div class="column">
+			<br>
+			<h2>Historial de Salario-Puesto</h2>
+
+			<form action="{% url 'agregarHistorial' id_empleado %}" method="get">
+				<input type="submit" value="Agregar Entrada" class="agregarInput">
+			</form>
+
+			<script type="text/javascript">
+				var historial = {{historial_salario_puesto|safe}}
+
+				var strh1 = "<h4> Entrada ";
+				var strh2 = "</h4>"
+
+				var str1 = "<li><a>";
+				var str2 = ": "
+				var str3 = "</a></li>";
+
+				for (var i = 0; i < capacitaciones.length; i++) {
+					document.write(strh1.concat((i+1).toString(), strh2));
+
+					var entrada = historial[i];
+					var llaves = Object.keys(entrada);
+
+					for (var j = 0; j < llaves.length; j++) {
+						var llave = llaves[j];
+						var valor = entrada[llave];
+
+						document.write(str1.concat(llave,str2,valor,str3));
+					}
+				}
+			</script>
+		</div>
+
+		<div class="column">
+			<br>
+			<h2>Acciones Disciplinarias</h2>
+
+			<form action="{% url 'agregarAccion' id_empleado %}" method="get">
+				<input type="submit" value="Agregar Accion" class="agregarInput">
+			</form>
+
+			<script type="text/javascript">
+				var acciones = {{acciones_disciplinarias|safe}}
+
+				var strh1 = "<h4> Falta ";
+				var strh2 = "</h4>"
+
+				var str1 = "<li><a>";
+				var str2 = ": "
+				var str3 = "</a></li>";
+
+				for (var i = 0; i < capacitaciones.length; i++) {
+					document.write(strh1.concat((i+1).toString(), strh2));
+
+					var accion = acciones[i];
+					var llaves = Object.keys(accion);
+
+					for (var j = 0; j < llaves.length; j++) {
+						var llave = llaves[j];
+						var valor = accion[llave];
+
+						document.write(str1.concat(llave,str2,valor,str3));
+					}
+				}
+			</script>
+		</div>
+	</div>
+</body>

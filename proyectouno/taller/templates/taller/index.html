@@ -1,0 +1,45 @@
+<head>
+	<style>
+		.column {
+	    float: left;
+	    width: 50%;
+	}
+
+	/* Clear floats after the columns */
+	.row:after {
+	    content: "";
+	    display: table;
+	    clear: both;
+	}
+	</style>
+</head>
+
+<body>
+	<div>
+		<h1>Bienvenido al sistema del taller!</h1>
+	</div>
+
+	<div>
+
+	</div>
+
+	<div>
+		<h4>Por favor elija una opcion:</h4>
+	</div>
+
+	<script type="text/javascript" opciones = {{opciones}}>
+
+		var opciones = {{opciones|safe}};
+		var opcionesUrls = {{opcionesUrls|safe}}
+		console.log(opciones);
+		var str1 = "<li><a ";
+		var str2 = "href='"
+		var str3 = "'>"
+		var str4 = "</a></li>";
+
+		for (var i = 0; i<opciones.length; i++) {
+			document.write(str1.concat(str2,opcionesUrls[i],str3,opciones[i],str4));
+		}
+		
+	</script>
+</body>

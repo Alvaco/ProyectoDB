@@ -1,0 +1,48 @@
+<head>
+	<style>
+		.column {
+	    float: left;
+	    width: 16.66%;
+		}
+
+		/* Clear floats after the columns */
+		.row:after {
+		    content: "";
+		    display: table;
+		    clear: both;
+		}
+
+		.agregarInput {
+			float: right;
+			clear: both;
+		}
+
+	</style>
+</head>
+
+<body>
+	<div>
+		<h1>Agregar Capacitacion a Empleado</h1>
+	</div>
+
+	<div>
+		<form action="{% url 'agregarCapacitacionACT' id_empleado %}" method="get">
+			<div class="row">
+				<div class="column">
+					<label>Fecha</label><br>
+					<input type="text" name="fecha">
+				</div>
+				<div class="column">
+					<label>Capacitacion</label><br>
+					<input type="text" name="capacitacion">
+				</div>
+				<div class="column">
+					<label>Calificacion</label><br>
+					<input type="text" name="calificacion">
+				</div>
+				
+			</div><br>
+			<input type="submit" value="Agregar Capacitacion">
+		</form>
+	</div>
+</body>

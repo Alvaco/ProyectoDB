@@ -1,0 +1,48 @@
+<head>
+	<style>
+		.column {
+	    float: left;
+	    width: 16.66%;
+		}
+
+		/* Clear floats after the columns */
+		.row:after {
+		    content: "";
+		    display: table;
+		    clear: both;
+		}
+
+		.agregarInput {
+			float: right;
+			clear: both;
+		}
+
+	</style>
+</head>
+
+<body>
+	<div>
+		<h1>Agregar Accion Disciplinaria a Empleado</h1>
+	</div>
+
+	<div>
+		<form action="{% url 'agregarAccionACT' id_empleado %}" method="get">
+			<div class="row">
+				<div class="column">
+					<label>Fecha Accion</label><br>
+					<input type="text" name="fecha_accion">
+				</div>
+				<div class="column">
+					<label>Accion Otorgada</label><br>
+					<input type="text" name="accion">
+				</div>
+				<div class="column">
+					<label>Observaciones</label><br>
+					<input type="text" name="observaciones">
+				</div>
+				
+			</div><br>
+			<input type="submit" value="Agregar Accion">
+		</form>
+	</div>
+</body>

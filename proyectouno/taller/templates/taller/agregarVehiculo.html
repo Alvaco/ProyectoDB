@@ -1,0 +1,56 @@
+<head>
+	<style>
+		.column {
+	    float: left;
+	    width: 16.66%;
+		}
+
+		/* Clear floats after the columns */
+		.row:after {
+		    content: "";
+		    display: table;
+		    clear: both;
+		}
+
+		.agregarInput {
+			float: right;
+			clear: both;
+		}
+
+	</style>
+</head>
+
+<body>
+	<div>
+		<h1>Agregar Vehiculo a Empleado</h1>
+	</div>
+
+	<div>
+		<form action="{% url 'agregarVehiculoACT' id_empleado %}" method="get">
+			<div class="row">
+				<div class="column">
+					<label>Placa</label><br>
+					<input type="text" name="placa">
+				</div>
+				<div class="column">
+					<label>Modelo</label><br>
+					<input type="text" name="modelo">
+				</div>
+				<div class="column">
+					<label>Año</label><br>
+					<input type="text" name="anio">
+				</div>
+				<div class="column">
+					<label>Marca</label><br>
+					<input type="text" name="marca">
+				</div>
+				<div class="column">
+					<label>Color</label><br>
+					<input type="text" name="color">
+				</div>
+				
+			</div><br>
+			<input type="submit" value="Agregar Vehiculo">
+		</form>
+	</div>
+</body>

@@ -1,0 +1,92 @@
+<head>
+	<style>
+		.column {
+	    float: left;
+	    width: 16.66%;
+		}
+
+		/* Clear floats after the columns */
+		.row:after {
+		    content: "";
+		    display: table;
+		    clear: both;
+		}
+
+		.agregarInput {
+			float: right;
+			clear: both;
+		}
+
+	</style>
+</head>
+
+<body>
+	<div>
+		<h1>Agregar Empleado</h1>
+	</div>
+
+	<div>
+		<form action="{% url 'agregarEmpleado' %}" method="get">
+			<div class="row">
+				<div class="column">
+					<label>Nombre</label><br>
+					<input type="text" name="nombre">
+				</div>
+				<div class="column">
+					<label>Apellido</label><br>
+					<input type="text" name="apellido">
+				</div>
+				<div class="column">
+					<label>Direccion</label><br>
+					<input type="text" name="direccion">
+				</div>
+				<div class="column">
+					<label>Telefono</label><br>
+					<input type="text" name="telefono">
+				</div>
+				<div class="column">
+					<label>Correo</label><br>
+					<input type="text" name="correo">
+				</div>
+				<div class="column">
+					<label>Fecha contratacion</label><br>
+					<input type="text" name="fecha_contratacion">
+				</div>
+			</div><br>
+			<div class="row">
+				<div class="column">
+					<label>Edad</label><br>
+					<input type="text" name="edad">
+				</div>
+				<div class="column">
+					<label>DPI</label><br>
+					<input type="text" name="dpi">
+				</div>
+				<div class="column">
+					<label>Sexo</label><br>
+					<input type="text" name="sexo">
+				</div>
+				<div class="column">
+					<label>Puesto</label><br>
+					<input type="text" name="puesto">
+				</div>
+				<div class="column">
+					<label>Tipo Empleado</label><br>
+					<input type="text" name="tipo_empleado">
+				</div>
+				<div class="column">
+					<label>Salario</label><br>
+					<input type="text" name="salario">
+				</div>
+			</div> <br>
+			<div class="row">
+				<div class="column">
+					<label>Twitter</label><br>
+					<input type="text" name="twitter">
+				</div>
+			</div>
+		 <br><br>
+		<input type="submit" value="Agregar Empleado" class="agregarInput"><br>
+		</form>
+	</div>
+</body>

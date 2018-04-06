@@ -1,0 +1,25 @@
+
+<body>
+	<h1>Busqueda Twitter</h1>
+
+	<form action="{% url 'busquedaFiltradaTwitterACT'%}" method="get">
+		<input type="text" name="palabra" value={{palabra}}>
+		<input type="submit" value="Buscar" >
+	</form>
+
+	<script type="text/javascript">
+		var tweetsFiltrados = {{tweetsFiltrados|safe}};
+
+		var str1 = "<li><a>";
+		var str2 = ": "
+		var str3 = "</a></li>";
+
+		for (var i = 0; i < tweetsFiltrados.length; i++) {
+			var tweetFiltrado = tweetsFiltrados[i];
+			var user = tweetFiltrado['user'];
+			var tweet = tweetFiltrado['tweet'];
+
+			document.write(str1.concat(user,str2,tweet,str3));
+		}
+	</script>
+</body>
