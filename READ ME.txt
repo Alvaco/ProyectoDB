@@ -1,0 +1,8 @@
+Installar los paquetes de python con "pip install":
+	django
+	tweepy
+	pymongo
+	psycopg2
+	
+En el archivo "postgresql_conn.py" en la línea 13, cambiar la contraseña y usuario (user = "postgres" password = "1234") 
+a su usuario contraseña. Esto se encuentra en la carpeta "modules", dentro de la carpeta "taller".
